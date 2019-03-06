@@ -9,8 +9,16 @@
 <body>
 <div>
     <h1>Welcome to the Countries of The World Quiz!</h1>
+    <h3>What game do you want to play?</h3>
+    <form th:action="@{/{value}/{level}}" method="post" th:object="${gameLogic}">
+        <select>
+            <option th:value="capital">Capital</option>
+            <option th:value="currency">Currency</option>
+            <option th:value="population">Population</option>
+            <option th:value="continent">Continent</option>
+            <option th:value="all">All the topics!</option>
+        </select>
     <h3>How are you feeling today?</h3>
-    <form th:action="@{/capitals/1}" method="post" th:object="${gameLogic}">
         <select th:field="*{totalQuestions}">
             <option th:value="5">Take it easy... 5 Questions</option>
             <option th:value="10">I'm feeling confident... 10 Questions</option>
