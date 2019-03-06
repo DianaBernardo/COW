@@ -1,5 +1,8 @@
 package cow.fedex;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameLogic {
 
   private int level;
