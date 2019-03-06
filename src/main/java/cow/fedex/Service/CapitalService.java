@@ -1,26 +1,33 @@
 package cow.fedex.Service;
 
+import cow.fedex.Model.Country;
 import cow.fedex.Repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
-public class CapitalService extends CountryService{
+public class CapitalService {
+  CountryService countryService;
 
-  public CapitalService(CountryRepository countryRepository) {
-    super(countryRepository);
+  @Autowired
+  public CapitalService(CountryService countryService) {
+    this.countryService = countryService;
   }
 
-  public Map<Integer, String> options () {
-     Map<Integer, String> optionsMap = new HashMap<Integer, String>() {{
-       put(1, "");
-       put(2, "");
-       put(3, "");
-       put(4, "");
-     }};
-    return optionsMap;
+
+  public Map<Integer, String> countryOptions(int difficulty) {
+    Map<Integer, Country> countryMap= countryService.options(difficulty);
+    Map<Integer, String> countryOptionsMap = new HashMap<Integer, String>() {
+      {
+        for (int i = 0; i < countryMap.size(); i++) {
+          put(i, countryMap.get(i).getName());
+        }
+      }
+    };
+    return countryOptionsMap;
   }
 }
