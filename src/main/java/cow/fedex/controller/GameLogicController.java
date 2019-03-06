@@ -1,4 +1,4 @@
-package cow.fedex.controller;
+package cow.fedex.Controller;
 
 import cow.fedex.Model.GameLogic;
 import org.springframework.stereotype.Controller;
