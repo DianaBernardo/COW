@@ -19,15 +19,28 @@ public class CapitalService {
   }
 
 
-  public Map<Integer, String> countryOptions(int difficulty) {
-    Map<Integer, Country> countryMap= countryService.options(difficulty);
-    Map<Integer, String> countryOptionsMap = new HashMap<Integer, String>() {
-      {
+//  public Map<Integer, String> countryOptions(int difficulty) {
+//    Map<Integer, Country> countryMap = countryService.options(difficulty);
+//    Map<Integer, String> countryOptionsMap = new HashMap<Integer, String>() {
+//      {
+//        for (int i = 0; i < countryMap.size(); i++) {
+//          put(i, countryMap.get(i).getCapital());
+//        }
+//      }
+//    };
+//    return countryOptionsMap;
+//  }
+
+  public Map<String, String> countryOptions(int difficulty) {
+    Map<Integer, Country> countryMap = countryService.options(difficulty);
+    Map<String, String> countryOptionsMap = new HashMap<String, String>();
         for (int i = 0; i < countryMap.size(); i++) {
-          put(i, countryMap.get(i).getName());
+          countryOptionsMap.put(countryMap.get(i).getName(), countryMap.get(i).getCapital());
         }
-      }
-    };
     return countryOptionsMap;
   }
+
+//  public String chosenCountryName (Map<Integer, Country> countryMap) {
+//    return ;
+//  }
 }
