@@ -1,4 +1,4 @@
-package cow.fedex;
+package cow.fedex.Model;
 
 import org.springframework.stereotype.Component;
 
