@@ -20,11 +20,12 @@ public class Countdown {
       @Override
       public void run() {
         secondsLeft--;
+        System.out.println("Time left: " + secondsLeft);
         if (secondsLeft == 0) {
           timer.cancel();
         }
       }
-    }, 0, 60000);
+    }, 0, 1000);
   }
 
   public void setCountDown(int seconds) {

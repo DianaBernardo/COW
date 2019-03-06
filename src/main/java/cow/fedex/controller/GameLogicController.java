@@ -12,7 +12,7 @@ public class GameLogicController {
   @GetMapping("/")
   public String mainpage(Model model, @ModelAttribute("gameLogic") GameLogic gameLogic) {
     model.addAttribute("gameLogic", gameLogic);
-    return "index";
+    return "index2";
   }
 }
 

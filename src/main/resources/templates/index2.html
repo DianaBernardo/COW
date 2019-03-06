@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Countries Of The World</title>
+</head>
+<body>
+<div>
+    <h1>Welcome to the Countries of The World Quiz!</h1>
+    <h3>What game do you want to play?</h3>
+    <form th:action="@{/{value}/{level}}" method="post" th:object="${gameLogic}">
+        <select>
+            <option th:value="capital">Capital</option>
+            <option th:value="currency">Currency</option>
+            <option th:value="population">Population</option>
+            <option th:value="continent">Continent</option>
+            <option th:value="all">All the topics!</option>
+        </select>
+    <h3>How are you feeling today?</h3>
+        <select th:field="*{totalQuestions}">
+            <option th:value="5">Take it easy... 5 Questions</option>
+            <option th:value="10">I'm feeling confident... 10 Questions</option>
+            <option th:value="15">I'm on fire... 15 Questions</option>
+        </select>
+        <button type="submit">LET'S PLAY</button>
+    </form>
+</div>
+</body>
+</html>
