@@ -13,6 +13,13 @@ public class GameLogic {
     this.correctGuesses = 0;
   }
 
+  public GameLogic(int level, int totalQuestions) {
+    this.level = level += 1;
+    this.totalQuestions = totalQuestions;
+    this.askedQuestions = 0;
+    this.correctGuesses = 0;
+  }
+
   public GameLogic(int totalQuestions) {
     this.level = 1;
     this.totalQuestions = totalQuestions;
@@ -28,14 +35,18 @@ public class GameLogic {
     return false;
   }
 
-  public void increaseLevel(Integer level) {
+  public void increaseLevel(int level, int totalQuestions) {
     if (level < 5) {
       if (this.askedQuestions == this.totalQuestions) {
         if (score()) {
-          level++;
+          GameLogic gameLogic = new GameLogic(level, totalQuestions);
         }
       }
     }
+  }
+
+  public void levelGenerator(int level) {
+
   }
 
   public int getLevel() {
@@ -70,4 +81,3 @@ public class GameLogic {
     this.correctGuesses = correctGuesses;
   }
 }
-
