@@ -19,7 +19,7 @@ public class Country {
   public int getDifficulty() {
     return difficulty;
   }
-  
+
   public long getId() {
     return id;
   }
