@@ -6,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Countries Of The World</title>
 </head>
-<body>
-<div>
+<body class="container-fluid jumbotron bg-info">
+<div class="text-center">
     <h1>Welcome to the Countries of The World Quiz!</h1>
-    <h3>What game do you want to play?</h3>
+    <h3 class="mt-md-4">What game do you want to play?</h3>
     <form th:action="@{/{value}/{level}}" method="post" th:object="${gameLogic}">
-        <select>
+        <select class="ml-md-4">
             <option th:value="capital">Capital</option>
             <option th:value="currency">Currency</option>
             <option th:value="population">Population</option>
             <option th:value="region">Region</option>
             <option th:value="all">All the topics!</option>
         </select>
-    <h3>How are you feeling today?</h3>
+    <h3 class="mt-md-4">How are you feeling today?</h3>
         <select th:field="*{totalQuestions}">
             <option th:value="5">Take it easy... 5 Questions</option>
             <option th:value="10">I'm feeling confident... 10 Questions</option>
             <option th:value="15">I'm on fire... 15 Questions</option>
         </select>
-        <button type="submit">LET'S PLAY</button>
+        <br>
+        <button type="submit" class="mt-md-4 btn-group-vertical">LET'S PLAY</button>
     </form>
 </div>
 </body>
