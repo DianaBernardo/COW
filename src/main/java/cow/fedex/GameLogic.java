@@ -36,17 +36,13 @@ public class GameLogic {
   }
 
   public void increaseLevel(int level, int totalQuestions) {
-    if (level < 5) {
+    if (level <= 5) {
       if (this.askedQuestions == this.totalQuestions) {
         if (score()) {
           GameLogic gameLogic = new GameLogic(level, totalQuestions);
         }
       }
     }
-  }
-
-  public void levelGenerator(int level) {
-
   }
 
   public int getLevel() {
