@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>COW Question</title>
+</head>
+<body>
+<div>
+    <h1>Countries of The World Quiz!</h1>
+    <h3>What is the capital city of <span th:text="${rightCountry}"></span>?</h3>
+    <form th:action="@{/capitals/1}" method="post">
+        <input type="hidden" name="rightCountry" value="${rightCountry}">
+        <div th:each="capital : ${capitalOptions}">
+            <input th:text="${capital}" type="radio" name="city" value=th:text="${capital}">
+        </div>
+        <button type="submit">GO</button>
+    </form>
+</div>
+</body>
+</html>
