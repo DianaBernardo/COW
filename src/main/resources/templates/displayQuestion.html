@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>COW Question</title>
 </head>
-<body>
-<div>
-    <h1>Countries of The World Quiz!</h1>
+<body class="container-fluid jumbotron bg-info">
+<div class="text-center">
+    <h1 class="text-white">Countries of The World Quiz!</h1>
     <h3 th:text="|What is the capital city of *{countryList.get(1).getName()}?|"></h3>
     <form th:action="@{/capitals/1}" method="post" >
-        <label th:each="country : ${countryList}">
-            <input type="radio" name="city" value="A"  th:text="*{country.getCapital()}"> </br>
+        <label th:each="country : ${countryList}"> </br>
+            <input type="radio" name="city" value="A"  th:text="*{country.getCapital()}"/>
         </label>
+        <br>
         <button type="submit">GO</button>
     </form>
 </div>
