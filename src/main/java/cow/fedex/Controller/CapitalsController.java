@@ -32,14 +32,13 @@ public class CapitalsController {
     return "displayQuestion";
   }
 
-  @ResponseBody
   @PostMapping("capitals/{level}")
   public String postAnswer(@PathVariable int level, @ModelAttribute("rightCountry") String countryName, @ModelAttribute("capital") String capital) {
     if (capitalService.isCountryCorrect(countryService.findCountryByName(countryName), capital)
     ) {
-      return "true";
+      return "redirect:/capitals/{level}";
     } else {
-      return "false";
+      return "gameOver";
     }
   }
 }
