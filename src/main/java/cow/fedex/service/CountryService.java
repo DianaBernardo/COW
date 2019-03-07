@@ -4,6 +4,7 @@ import cow.fedex.Model.Country;
 import cow.fedex.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +51,10 @@ public class CountryService {
       countryName = randomCountry.getName();
     }
     return countryName;
+  }
+
+  public boolean validAnswer(Country country, @ModelAttribute("answer") Country answerCountry) {
+    if (country.getCapital() == answerCountry.getCapital());
+    return true;
   }
 }

@@ -5,6 +5,7 @@ import cow.fedex.service.CountryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -24,4 +25,10 @@ public class CountryController {
     model.addAttribute("countryName", countryService.countryAsked(countries));
     return "displayQuestion";
   }
+
+  @PostMapping("/capitals")
+  public String answer(Model model) {
+
+  }
+      )
 }
