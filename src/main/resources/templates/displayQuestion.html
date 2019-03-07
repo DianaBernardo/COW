@@ -9,12 +9,11 @@
 <body>
 <div>
     <h1>Countries of The World Quiz!</h1>
-    <h3>What is the capital city of ${capitalOptions.}?</h3>
-    <form th:action="@{/capitals/1}" method="post" th:object="${gameLogic}">
-        <input type="radio" name="city" value="A"> <br>
-        <input type="radio" name="city" value="B"> <br>
-        <input type="radio" name="city" value="C"> <br>
-        <input type="radio" name="city" value="D">
+    <h3>What is the capital city of <span th:text="${rightCountry}"></span>?</h3>
+    <form th:action="@{/capitals/1}" method="post" th:each="${capitalOptions}">
+            <ul th:each="capital : ${capitalOptions}">
+                <li th:text="${capital}"><input type="radio" name="city" value=th:text="${capital}"></li>
+            </ul>
         </select>
         <button type="submit">GO</button>
     </form>
