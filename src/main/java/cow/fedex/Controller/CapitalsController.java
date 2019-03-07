@@ -6,9 +6,7 @@ import cow.fedex.Service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class CapitalsController {
   }
 
   @GetMapping("capitals/{level}")
-  public String showquestion (@PathVariable int level, Model model) {
+  public String showquestion(@PathVariable int level, Model model) {
     List<Country> countryList = countryService.getAllCountriesByDifficulty(level);
     List<Country> limitedCountryList = countryService.getAndRemoveNRandomCountriesFromList(countryList, 4);
     String rightCountryName = countryService.pickRandomCountryNameFromCountryList(limitedCountryList);
@@ -32,5 +30,16 @@ public class CapitalsController {
     model.addAttribute("capitalOptions", capitalOptionsList);
     model.addAttribute("rightCountry", rightCountryName);
     return "displayQuestion";
+  }
+
+  @ResponseBody
+  @PostMapping("capitals/{level}")
+  public String postAnswer(@PathVariable int level, @ModelAttribute("rightCountry") String countryName, @ModelAttribute("capital") String capital) {
+    if (capitalService.isCountryCorrect(countryService.findCountryByName(countryName), capital)
+    ) {
+      return "true";
+    } else {
+      return "false";
+    }
   }
 }

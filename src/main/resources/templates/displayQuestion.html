@@ -11,9 +11,9 @@
     <h1>Countries of The World Quiz!</h1>
     <h3>What is the capital city of <span th:text="${rightCountry}"></span>?</h3>
     <form th:action="@{/capitals/1}" method="post">
-        <input type="hidden" name="rightCountry" value="${rightCountry}">
+        <input type="hidden" name="rightCountry" th:value="${rightCountry}">
         <div th:each="capital : ${capitalOptions}">
-            <input th:text="${capital}" type="radio" name="city" value=th:text="${capital}">
+            <input th:text="${capital}" type="radio" name="capital" th:value="${capital}">
         </div>
         <button type="submit">GO</button>
     </form>

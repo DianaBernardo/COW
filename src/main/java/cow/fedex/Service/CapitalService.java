@@ -52,4 +52,7 @@ public class CapitalService {
     return capitalsList;
   }
 
+  public boolean isCountryCorrect(Country country, String capital) {
+    return country.getCapital().equals(capital);
+  }
 }

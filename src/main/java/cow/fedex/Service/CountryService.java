@@ -45,6 +45,10 @@ CountryRepository countryRepository;
     return randomizedCountryList.get(randomIndex).getName();
   }
 
+  public Country findCountryByName(String countryName) {
+    return countryRepository.findCountryByName(countryName);
+  }
+
 //  public Map<Integer, Country> options(int difficulty) {
 //    Map<Integer, Country> optionsMap = new HashMap<Integer, Country>() {{
 //      put(0, randomCountryByDifficulty(difficulty));
